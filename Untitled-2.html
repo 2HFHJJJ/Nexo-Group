@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NEXO DATA BASE — Account Console</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <section class="card" aria-live="polite">
+      <header>
+        <h1>NEXO DATA BASE — Account Console</h1>
+        <p class="lead">
+          Create an account, verify it, then sign in. After login you will see a loading screen for 2 seconds and then get redirected.
+        </p>
+      </header>
+
+      <!-- REGISTER + LOGIN PAGE -->
+      <div id="view-register" class="view active">
+        <div class="row">
+
+          <!-- REGISTER -->
+          <div class="col">
+            <h2>Create Account</h2>
+            <form id="registerForm">
+              <label for="r_email">Email</label>
+              <input id="r_email" type="email" placeholder="you@example.com" required />
+
+              <label for="r_password">Password (min 6 chars)</label>
+              <input id="r_password" type="password" required />
+
+              <div class="center" style="gap:12px;margin-top:8px;">
+                <button type="submit">Register</button>
+                <button type="button" id="go-to-login" class="secondary">Go to Sign in</button>
+              </div>
+
+              <div id="regResult" class="note" aria-live="polite"></div>
+            </form>
+          </div>
+
+          <!-- LOGIN -->
+          <div class="col">
+            <h2>Sign In</h2>
+            <form id="loginForm">
+              <label for="l_email">Email</label>
+              <input id="l_email" type="email" placeholder="you@example.com" required />
+
+              <label for="l_password">Password</label>
+              <input id="l_password" type="password" required />
+
+              <div class="center" style="gap:12px;margin-top:8px;">
+                <button type="submit">Sign in</button>
+                <button type="button" id="open-forgot" class="secondary">Forgot Password</button>
+              </div>
+
+              <div id="loginResult" class="note" aria-live="polite"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- VERIFIED SCREEN -->
+      <div id="view-verified" class="view">
+        <h2>Email Verified ✔</h2>
+        <p class="small">Your account is now verified. You can sign in.</p>
+        <button id="verified-back" class="secondary" style="margin-top:15px;">Back to Login</button>
+      </div>
+
+      <!-- FORGOT PASSWORD SCREEN -->
+      <div id="view-forgot" class="view">
+        <h2>Reset Password</h2>
+        <p class="small muted">Demo only — no real email is sent.</p>
+
+        <form id="forgotForm">
+          <label for="f_email">Email</label>
+          <input id="f_email" type="email" placeholder="you@example.com" required />
+
+          <div class="center" style="gap:12px;margin-top:8px;">
+            <button type="submit">Send Reset Link</button>
+            <button type="button" id="forgot-cancel" class="secondary">Cancel</button>
+          </div>
+
+          <div id="forgotResult" class="note" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <!-- LAUNCH / LOADING SCREEN -->
+      <div id="view-launch" class="view center" style="flex-direction:column;gap:12px;">
+        <h2 id="launch-title">Preparing your session…</h2>
+        <div id="launch-spinner" class="spinner" aria-hidden="true"></div>
+        <p id="launch-msg" class="small">Redirecting...</p>
+
+        <!-- initially hidden; shown after 2s if needed -->
+        <a id="go-main-site"
+           href="https://sites.google.com/view/nexoweb1/home"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="main-btn hidden">
+          Head to Main Website
+        </a>
+      </div>
+
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
